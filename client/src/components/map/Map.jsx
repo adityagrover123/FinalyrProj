@@ -9,9 +9,9 @@ function Map({ items }) {
       center={
         items.length === 1
           ? [items[0].latitude, items[0].longitude]
-          : [52.4797, -1.90269]
+          : [20.5937, 78.9629] // Center of India
       }
-      zoom={7}
+      zoom={3} // Zoom out a bit for a better national view
       scrollWheelZoom={false}
       className="map"
     >

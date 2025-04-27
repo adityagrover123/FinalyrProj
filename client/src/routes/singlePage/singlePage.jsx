@@ -26,7 +26,40 @@ function SinglePage() {
       setSaved((prev) => !prev);
     }
   };
+// const handleSendMessage = async () => {
+//   if (!currentUser) {
+//     navigate("/login");
+//     return;
+//   }
 
+//   try {
+//     const res = await apiRequest.post("/chats", {
+//       receiverId: post.userId,
+//     });
+
+//     // Optionally, navigate to chat view after success
+//     // navigate(`/messages/${res.data.id}`); // assuming your route accepts chat id
+//   } catch (err) {
+//     console.log("Error creating chat:", err);
+//   }
+// };
+const handleSendMessage = async () => {
+  if (!currentUser) {
+    navigate("/login");
+    return;
+  }
+
+  try {
+    const res = await apiRequest.post("/chats", {
+      receiverId: post.userId,
+    });
+
+    // After successful message creation, navigate to profile
+    navigate("/profile"); // replace '/profile' with actual route to the user's profile
+  } catch (err) {
+    console.log("Error creating chat:", err);
+  }
+};
   return (
     <div className="singlePage">
       <div className="details">
@@ -139,7 +172,7 @@ function SinglePage() {
             <Map items={[post]} />
           </div>
           <div className="buttons">
-            <button>
+            <button  onClick={handleSendMessage}>
               <img src="/chat.png" alt="" />
               Send a Message
             </button>

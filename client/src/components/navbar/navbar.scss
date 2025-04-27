@@ -17,6 +17,11 @@ nav {
       scale: 1.05;
     }
   }
+  a.active {
+  border-bottom: 2px solid #000000;
+  // color: #fece51;
+  font-weight: bold;
+}
 
   .left {
     flex: 3;
@@ -88,6 +93,7 @@ nav {
         cursor: pointer;
         border: none;
         position: relative;
+        z-index: 999;
         
         .notification{
           position: absolute;
